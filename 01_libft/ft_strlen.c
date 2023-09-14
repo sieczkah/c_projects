@@ -10,4 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+size_t	ft_strlen(char *s);
 
+size_t	ft_strlen(char *s)
+{
+	int	i;
+
+	while (*s)
+	{
+		s++;
+		i++;
+	}
+	return (i);
+}
+
+int	main(void)
+{
+	ft_strlen("abcd");
+	return(0);
+}
