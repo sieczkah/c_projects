@@ -6,7 +6,7 @@
 /*   By: hsieczka <hsieczka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 23:09:20 by hsieczka          #+#    #+#             */
-/*   Updated: 2023/09/24 23:27:59 by hsieczka         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:54:16 by hsieczka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stddef.h>
 
-int ft_isalnum(int c);
+int	ft_isalnum(int c);
 int ft_isalpha(int c);
 int ft_isascii(int c);
 int ft_isdigit(int c);
