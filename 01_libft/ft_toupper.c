@@ -6,18 +6,17 @@
 /*   By: hsieczka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:10:20 by hsieczka          #+#    #+#             */
-/*   Updated: 2023/09/12 19:10:20 by hsieczka         ###   ########.fr       */
+/*   Updated: 2023/10/08 18:19:00 by hsieczka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 int	ft_toupper(int c);
 
 int	ft_toupper(int c)
 {
-	if(c >= 'A' || c <= 'Z')
+	if (c >= 'a' && c <= 'z')
 	{
-		return (c - 32);
+		return (c - ('a' - 'A'));
 	}
 	return (c);
 }

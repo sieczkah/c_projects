@@ -6,7 +6,7 @@
 /*   By: hsieczka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:10:44 by hsieczka          #+#    #+#             */
-/*   Updated: 2023/10/04 23:53:48 by hsieczka         ###   ########.fr       */
+/*   Updated: 2023/10/08 16:47:52 by hsieczka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,15 @@ char	*ft_strchr(const char *str, int c);
 
 char	*ft_strchr(const char *str, int c)
 {
-	char	*first_occur;
-
-	first_occur = NULL;
 	while (*str)
 	{
-		if (*str == c)
+		if (*str == (char)c)
 		{
-			first_occur = (char *)str;
-			return (first_occur);
+			return ((char *)str);
 		}
 		str++;
 	}
-	return (first_occur);
+	if ((char)c == '\0')
+		return ((char *)str);
+	return (NULL);
 }

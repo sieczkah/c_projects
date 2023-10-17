@@ -16,14 +16,16 @@ char	*ft_strrchr(const char *str, int c);
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char *last_p;
+	char	*last_ocur;
 
-	last_p = NULL;
+	last_ocur = NULL;
 	while (*str)
 	{
-		if (*str == c)
-			last_p = (char *)str;
+		if (*str == (char)c)
+			last_ocur = (char *)str;
 		str++;
 	}
-	return (last_p);
+	if ((char)c == '\0')
+		return ((char *)str);
+	return (last_ocur);
 }

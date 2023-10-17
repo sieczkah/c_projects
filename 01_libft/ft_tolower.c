@@ -6,18 +6,17 @@
 /*   By: hsieczka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:10:29 by hsieczka          #+#    #+#             */
-/*   Updated: 2023/10/04 22:05:40 by hsieczka         ###   ########.fr       */
+/*   Updated: 2023/10/08 18:19:47 by hsieczka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 int	ft_tolower(int c);
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	if (c >= 'a' || c <= 'z')
+	if (c >= 'A' && c <= 'Z')
 	{
-		return (c + 32);
+		return (c + ('a' - 'A'));
 	}
 	return (c);
 }
