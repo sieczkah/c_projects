@@ -13,76 +13,74 @@
 #include "libft.h"
 
 char			**ft_split(char const *s, char c);
-static void		replace_delimiters(char *s, char c);
-static void		assign_pointers(char **split, char *copy, char c);
-static size_t	count_words(char const *s, char c);
+static	size_t	get_word_count(char const *s, char c);
+static	char		**ft_copy_words(char **split_arr, char const *s, char c);
+static char		**free_array_strings(char **split_arr, size_t i);
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	size_t	words;
-	char	**split;
-	char	*copy;
+	size_t	words_count;
+	char	**split_arr;
 
-	words = count_words(s, c);
-	split = malloc((words + 1) * sizeof(char *));
-	if (!split)
+	words_count = get_word_count(s, c);
+	split_arr = malloc((words_count + 1) * sizeof(char *));
+	if (!split_arr)
 		return (NULL);
-	copy = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!copy)
-	{
-		free(split);
-		return (NULL);
-	}
-	ft_strlcpy(copy, s, ft_strlen(s) + 1);
-	assign_pointers(split, copy, c);
-	replace_delimiters(copy, c);
-	return (split);
+	ft_copy_words(split_arr, s, c);
+	split_arr[words_count] = NULL;
+	return (split_arr);
 }
 
-static size_t	count_words(char const *s, char c)
-{
-	size_t	words;
-	size_t	i;
-
-	i = 0;
-	words = 0;
-	while (s[i])
-	{
-		if (s[i] != c && (i == 0 || s[i - 1] == c))
-			words++;
-		i++;
-	}
-	return (words);
-}
-
-static void	replace_delimiters(char *s, char c)
+static	char	**ft_copy_words(char **split_arr, char const *s, char c)
 {
 	size_t	i;
+	size_t	word_len;
+	char	*word_start;
 
 	i = 0;
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
-			s[i] = '\0';
-		i++;
-	}
-}
-
-static void	assign_pointers(char **split, char *copy, char c)
-{
-	size_t	i;
-	size_t	word_index;
-
-	i = 0;
-	word_index = 0;
-	while (copy[i])
-	{
-		if (i == 0 || (copy[i - 1] == c && copy[i] != c))
+		while (*s == c)
+			s++;
+		if (*s)
 		{
-			split[word_index] = &copy[i];
-			word_index++;
+			word_start = (char *)s;
+			while (*s != c && *s)
+				s++;
+			word_len = s - word_start;
+			split_arr[i] = malloc((word_len + 1) * sizeof(char));
+			if (!split_arr[i])
+				return (free_array_strings(split_arr, i));
+			ft_strlcpy(split_arr[i], word_start, word_len + 1);
+			i++;
 		}
-		i++;
 	}
-	split[word_index] = NULL;
+	return (split_arr);
+}
+
+static char	**free_array_strings(char **split_arr, size_t i)
+{
+	while (i--)
+		free(split_arr[i]);
+	free(split_arr);
+	return (NULL);
+}
+
+static	size_t	get_word_count(char const *s, char c)
+{
+	size_t	word_count;
+
+	word_count = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+		{
+			word_count++;
+			while (*s != c && *s)
+				s++;
+		}
+	}
+	return (word_count);
 }
