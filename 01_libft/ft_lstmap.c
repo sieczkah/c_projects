@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsieczka <hsieczka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 23:08:01 by hsieczka          #+#    #+#             */
-/*   Updated: 2023/09/19 23:08:02 by hsieczka         ###   ########.fr       */
+/*   Created: 2023/11/01 20:10:15 by hsieczka          #+#    #+#             */
+/*   Updated: 2023/11/01 20:10:17 by hsieczka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char			*new_str;
-	unsigned int	i;
+	t_list	*new_list;
+	t_list	*new_node;
 
-	new_str = ft_strdup(s);
-	if (new_str == NULL)
-		return (NULL);
-	i = 0;
-	while (new_str[i])
+	new_list = NULL;
+	while (lst != NULL)
 	{
-		new_str[i] = f(i, new_str[i]);
-		i++;
+		new_node = ft_lstnew(f((*lst).content));
+		if (new_node == NULL)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = (*lst).next;
 	}
-	return (new_str);
+	return (new_list);
 }
