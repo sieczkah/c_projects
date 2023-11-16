@@ -12,6 +12,15 @@
 
 int	ft_isalpha(int c);
 
+/*
+ * ft_isalpha - Checks if a character is an alphabetic (a-z, A-Z) letter.
+ *
+ * Parameters:
+ *		c - The character to be checked, represented as an int.
+ *
+ * Return Value:
+ *		Returns 1 if 'c' is an alphabetic letter, 0 otherwise.
+*/
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))

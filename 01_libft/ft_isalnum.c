@@ -12,6 +12,13 @@
 
 int	ft_isalnum(int c);
 
+/* ft_isalnum - Checks if a character is alphanumeric (a-z, A-Z, 0-9).
+ * Parameters:
+ *		c - The character to be checked, represented as an int.
+ *
+ * Return Value:
+ *		 Returns 1 if 'c' is alphanumeric, 0 otherwise.
+ */
 int	ft_isalnum(int c)
 {
 	if ((c >= '0' && c <= '9')

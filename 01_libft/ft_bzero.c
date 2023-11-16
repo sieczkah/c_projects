@@ -14,6 +14,18 @@
 
 void	ft_bzero(void *s, size_t n);
 
+/*
+ * ft_bzero - Sets the first n bytes of the block of memory pointed by s to zero.
+ * Passing a NULL pointer to s will result in undefined behavior.
+ * 
+ * Parameters:
+ *		s - A pointer to the block of memory to fill.
+ *		n - The number of bytes to be set to zero.
+ *
+ * Return Value:
+ *		No return value (void).
+ */
+
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*ptr;

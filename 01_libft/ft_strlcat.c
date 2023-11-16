@@ -14,6 +14,25 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dst_size);
 
+/*
+ * ft_strlcat - Appends the NULL-terminated string src to the end of dst.
+ * It will append at most dst_size - strlen(dst) - 1 characters.
+ * It will then NULL-terminate, unless dst_size is 0 or the original dst string
+ * was longer than dst_size.
+ * If the src and dst strings overlap, the behavior is undefined.
+ * Passing a NULL pointer to dst or src will result in undefined behavior.
+ *
+ * Parameters:
+ *		dst - A pointer to the destination string.
+ *		src - A pointer to the source string.
+ *		dst_size - The size of the destination buffer.
+ *
+ * Return Value:
+ * 		Returns the total length of the string tried to create.
+ * 		If the return value is >= dest_size, the output string has been
+ * 		truncated.
+ */
+
 size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
 {
 	size_t	dst_len;

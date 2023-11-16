@@ -13,6 +13,20 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
+/*
+ * ft_memcpy - Copies n bytes from memory area src to memory area dst.
+ * The memory areas must not overlap.
+ * Passing a NULL pointer to dst or src will result in undefined behavior.
+ *
+ * Parameters:
+ *		dst - A pointer to the destination memory area.
+ *		src - A pointer to the source memory area.
+ *		n - The number of bytes to be copied.
+ *
+ * Return Value:
+ *		Returns a pointer to dst.
+ */
+
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*d;

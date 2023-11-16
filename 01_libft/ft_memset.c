@@ -14,6 +14,19 @@
 
 void	*ft_memset(void *s, int c, size_t n);
 
+/*
+ * ft_memset - Fills a block of memory with a specified value.
+ * Passing a NULL pointer to s will result in undefined behavior.
+ * 
+ * Parameters:
+ *		s - A pointer to the block of memory to fill.
+ *		c - The value to be set.
+ *		n - The number of bytes to be set to the value.
+ *
+ * Return Value:
+ *		Returns a pointer to the memory block.
+ */
+
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*ptr;

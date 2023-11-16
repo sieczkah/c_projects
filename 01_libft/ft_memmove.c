@@ -14,6 +14,23 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t len);
 
+/*
+ * ft_memmove - Copies len bytes from memory area src to memory area dest.
+ * The memory areas may overlap.
+ * Passing a NULL pointer to dest or src will result in undefined behavior.
+ *
+ * If dest and src overlap in memory, memmove() ensures that the original
+ * source bytes in the overlapping region are copied before being overwritten.
+ * 
+ * Parameters:
+ *		dest - A pointer to the destination memory area.
+ *		src - A pointer to the source memory area.
+ *		len - The number of bytes to be copied.
+ *
+ * Return Value:
+ *		Returns a pointer to dest.
+ */
+
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
 	unsigned char		*d;

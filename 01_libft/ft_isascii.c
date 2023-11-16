@@ -12,6 +12,17 @@
 
 int	ft_isascii(int c);
 
+/*
+ * ft_isascii - Checks if a character is an ASCII character.
+ * ASCII characters are characters with a decimal value between 0 and 127
+ *
+ * Parameters:
+ *		c - The character to be checked, represented as an int.
+ *
+ * Return Value:
+ *		Returns 1 if 'c' is an ASCII character, 0 otherwise.
+*/
+
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

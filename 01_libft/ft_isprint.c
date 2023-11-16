@@ -12,6 +12,16 @@
 
 int	ft_isprint(int c);
 
+/*
+ * ft_isprint - Checks if a character is printable.
+ * Printable characters are characters with a decimal value between 32 and 126
+ * Parameters:
+ *		c - The character to be checked, represented as an int.
+ *
+ * Return Value:
+ *		Returns 1 if 'c' is printable, 0 otherwise.
+*/
+
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)

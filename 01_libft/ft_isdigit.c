@@ -12,6 +12,13 @@
 
 int	ft_isdigit(int c);
 
+/* ft_isdigit - Checks if a character is a digit (0-9).
+ * Parameters:
+ *		c - The character to be checked, represented as an int.
+ *
+ * Return Value:
+ *		 Returns 1 if 'c' is a digit, 0 otherwise.
+*/
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
