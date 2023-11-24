@@ -14,6 +14,17 @@
 
 t_list	*ft_lstlast(t_list *lst);
 
+/*
+ * ft_lstlast - Returns the last element of the list.
+ * Returns the last element of the list.
+ *
+ * Parameters:
+ * 		lst - A pointer to the start of the list.
+ *
+ * Return:
+ * 		The last element of the list.
+ */
+
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst == NULL)

@@ -12,40 +12,42 @@
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 /*
- * ft_strlcpy - Copies up to dest_size - 1 characters from the NULL-terminated
- * string src to dest, NULL-terminating the result.
+ * ft_strlcpy - Copies up to size - 1 characters from the NULL-terminated
+ * string src to dst, NULL-terminating the result.
  * The source and destination strings should not overlap, as the behavior is
  * undefined.
- * Passing a NULL pointer to dest or src will result in undefined behavior.
+ * Passing a NULL pointer to dst or src will result in undefined behavior.
+ * If size is 0, the string is not copied and the function returns the total
+ * length of the string it tried to create.
  *
  * Parameters:
- *		dest - A pointer to the destination string.
+ *		dst - A pointer to the destination string.
  *		src - A pointer to the source string.
- *		dest_size - The size of the destination buffer.
+ *		size - The size of the destination buffer.
  *
  * Return Value:
  * 		Returns the total length of the string tried to create.
- * 		If the return value is >= dest_size, the output string has been
+ * 		If the return value is >= size, the output string has been
  * 		truncated.
  */
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t dest_size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	len;
 
 	len = ft_strlen(src);
-	if (dest_size == 0)
+	if (size == 0)
 		return (len);
 	i = 0;
-	while (src[i] && (i < dest_size - 1))
+	while (src[i] && (i < size - 1))
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	dest[i] = 0;
+	dst[i] = 0;
 	return (len);
 }

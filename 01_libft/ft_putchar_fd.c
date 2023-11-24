@@ -14,6 +14,16 @@
 
 void	ft_putchar_fd(char c, int fd);
 
+/*
+* ft_putchar_fd - Outputs a character to a file descriptor.
+* Outputs the character 'c' to the given file descriptor 'fd'.
+* This function does not return a value.
+*
+* Parameters:
+* 		c - The character to output.
+* 		fd - The file descriptor on which to write.
+*/
+
 void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);

@@ -12,20 +12,20 @@
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dst_size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 /*
  * ft_strlcat - Appends the NULL-terminated string src to the end of dst.
- * It will append at most dst_size - strlen(dst) - 1 characters.
- * It will then NULL-terminate, unless dst_size is 0 or the original dst string
- * was longer than dst_size.
+ * It will append at most size - strlen(dst) - 1 characters.
+ * It will then NULL-terminate, unless size is 0 or the original dst string
+ * was longer than size.
  * If the src and dst strings overlap, the behavior is undefined.
  * Passing a NULL pointer to dst or src will result in undefined behavior.
  *
  * Parameters:
  *		dst - A pointer to the destination string.
  *		src - A pointer to the source string.
- *		dst_size - The size of the destination buffer.
+ *		size - The size of the destination buffer.
  *
  * Return Value:
  * 		Returns the total length of the string tried to create.
@@ -33,7 +33,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dst_size);
  * 		truncated.
  */
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	dst_len;
 	size_t	src_len;
@@ -42,11 +42,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	i = 0;
-	if (dst_size <= dst_len)
-		return (dst_size + src_len);
-	if (dst_size > 0)
+	if (size <= dst_len)
+		return (size + src_len);
+	if (size > 0)
 	{
-		while (src[i] && dst_len + i < dst_size - 1)
+		while (src[i] && dst_len + i < size - 1)
 		{
 			dst[dst_len + i] = src[i];
 			i++;

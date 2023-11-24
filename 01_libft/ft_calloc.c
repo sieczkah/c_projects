@@ -12,20 +12,30 @@
 
 #include "libft.h"
 
-void	*ft_calloc(size_t n_elems, size_t size);
+void	*ft_calloc(size_t count, size_t size);
 
-void	*ft_calloc(size_t n_elems, size_t size)
+/*
+ * The calloc() function allocates memory for an array of count elements of size
+ * size each and returns a pointer to the allocated memory. The memory is set
+ * to zero. If count or size is 0, then calloc() returns either NULL, or a
+ * unique pointer value that can later be successfully passed to free().
+ * 
+ * Parameters:
+ * 		count - Number of elements to allocate.
+ * 		size - Size of each element.
+ * Return Value:
+ * 		A pointer to the allocated memory.
+ * 		If count or size is 0, then calloc() returns either NULL, or a unique
+ * 		pointer value that can later be successfully passed to free().
+ */
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	total_size;
 	void	*ptr;
 
-	if (n_elems == 0 || size == 0)
+	ptr = malloc(size * count);
+	if (!ptr)
 		return (NULL);
-	total_size = n_elems * size;
-	if (total_size / n_elems != size)
-		return (NULL);
-	ptr = malloc(size * n_elems);
-	if (ptr)
-		ft_memset(ptr, 0, total_size);
+	ft_memset(ptr, 0, count * size);
 	return (ptr);
 }

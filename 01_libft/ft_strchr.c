@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int c);
+char	*ft_strchr(const char *s, int c);
 
 /* 
  * The strchr() function locates the first occurrence of c (converted to a char)
@@ -26,18 +26,17 @@ char	*ft_strchr(const char *str, int c);
  * the character does not appear in the string.
  */
 
-
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	while (*str)
+	while (*s)
 	{
-		if (*str == (char)c)
+		if (*s == (char)c)
 		{
-			return ((char *)str);
+			return ((char *)s);
 		}
-		str++;
+		s++;
 	}
 	if ((char)c == '\0')
-		return ((char *)str);
+		return ((char *)s);
 	return (NULL);
 }

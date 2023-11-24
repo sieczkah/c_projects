@@ -14,6 +14,17 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
+/*
+* ft_lstadd_front - Adds an element to the start of a list.
+* Adds the element 'new' at the beginning of the list. 
+* The 'next' pointer of 'new' is set to the old start of the list,
+* and the start of the list is set to 'new'.
+*
+* Parameters:
+* 		lst - A pointer to the start of the list.
+* 		new - The new element to add to the list.
+*/
+
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (new != NULL)

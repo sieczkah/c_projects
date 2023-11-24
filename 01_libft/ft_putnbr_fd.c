@@ -14,6 +14,16 @@
 
 void	ft_putnbr_fd(int n, int fd);
 
+/*
+* ft_putnbr_fd - Outputs an integer to a file descriptor.
+* Outputs the integer 'n' to the given file descriptor 'fd'.
+* This function does not return a value.
+*
+* Parameters:
+* 		n - The integer to output.
+* 		fd - The file descriptor on which to write.
+*/
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	abs_num;

@@ -14,6 +14,16 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
+/*
+* ft_lstiter - Iterates the list 'lst' and applies the function 
+'f' to the content of each element.
+* This function does not return a value.
+*
+* Parameters:
+* 		lst - The start of the list.
+* 		f - The function to apply to each element's content.
+*/
+
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)

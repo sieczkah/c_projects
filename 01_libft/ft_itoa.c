@@ -15,6 +15,21 @@
 char			*ft_itoa(int n);
 static size_t	get_num_size(int n);
 
+/*
+* ft_itoa - Converts an integer to a string.
+* Converts an integer to a null-terminated string. 
+* The string is created in the heap, and it's the responsibility 
+* of the caller to free it when it's no longer needed.
+* Negative numbers are handled correctly, 
+* with a '-' sign added at the start of the string.
+*
+* Parameters:
+* 		n - The integer to convert.
+* Returns:
+* 		The string representation of the integer,
+* 		or NULL if the allocation fails.
+*/
+
 char	*ft_itoa(int n)
 {
 	size_t		len;

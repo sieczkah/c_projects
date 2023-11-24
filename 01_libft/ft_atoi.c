@@ -12,6 +12,22 @@
 
 int	ft_atoi(const char *str);
 
+/*
+ * The atoi() function converts the initial portion of the string pointed to by
+ * str to int representation. It ignores any whitespace characters until the
+ * first non-whitespace character is found, then takes as many characters as
+ * possible to form a valid integer number representation and converts them to
+ * an integer value. The valid integer value consists of the following parts:
+ * 		(1) optional leading sign
+ * 		(2) a sequence of digits
+ * 
+ * Parameters:
+ * 		str - A pointer to the string to be converted.
+ * Return Value:
+ * 		The converted value.
+ * 		If no valid conversion could be performed, it returns zero.
+ */
+
 int	ft_atoi(const char *str)
 {
 	int	result;

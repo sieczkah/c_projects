@@ -12,14 +12,32 @@
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 
-void	*ft_memchr(const void *str, int c, size_t n)
+/*
+ * ft_memchr - locate character in byte string
+ * Passes in a memory area, a character to search for, 
+ * and a count of bytes to search
+ * Passing a NULL pointer will result in an undefined behavior
+ * Passing a count of zero will return NULL.
+ * Extending the search beyond the number of bytes in the memory area will 
+ * result in an undefined behavior.
+ * 
+ * Parameters:
+ * 		s - A pointer to the memory area to be searched.
+ * 		c - The character to be located.
+ * 		n - The number of bytes to be searched.
+ * Return Value:
+ * 		Returns a pointer to the matching byte or NULL if the character does not
+ * 		occur in the given memory area.
+ */
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*ptr;
 	unsigned char		char_c;
 
-	ptr = (const unsigned char *)str;
+	ptr = (const unsigned char *)s;
 	char_c = (unsigned char)c;
 	while (n--)
 	{

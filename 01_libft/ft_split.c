@@ -12,75 +12,127 @@
 
 #include "libft.h"
 
-char			**ft_split(char const *s, char c);
-static	size_t	get_word_count(char const *s, char c);
-static	char		**ft_copy_words(char **split_arr, char const *s, char c);
-static char		**free_array_strings(char **split_arr, size_t i);
+char			**ft_split(const char *s, char c);
+static int		count_words(const char *s, char c);
+static int		word_len(const char *s, char c);
+char			**free_allocated_memory(char **result, int i);
 
-char	**ft_split(const char *s, char c)
+/*
+* ft_split - Splits a string into an array of strings.
+* Splits a string into an array of strings using the delimiter character.
+* The array of strings is terminated by a NULL pointer.
+* Passing a NULL pointer as the string to split will result in an undefined
+* behavior.
+*
+* Parameters:
+* 		s - The string to split.
+* 		c - The character delimiting the words.
+* Returns:
+* 		The array of strings resulting from the split,
+* 		or NULL if the allocation fails.
+*/
+char	**ft_split(char const *s, char c)
 {
-	size_t	words_count;
-	char	**split_arr;
-
-	words_count = get_word_count(s, c);
-	split_arr = malloc((words_count + 1) * sizeof(char *));
-	if (!split_arr)
-		return (NULL);
-	ft_copy_words(split_arr, s, c);
-	split_arr[words_count] = NULL;
-	return (split_arr);
-}
-
-static	char	**ft_copy_words(char **split_arr, char const *s, char c)
-{
-	size_t	i;
-	size_t	word_len;
-	char	*word_start;
+	int		i;
+	int		len;
+	char	**result;
 
 	i = 0;
+	result = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
 	while (*s)
 	{
-		while (*s == c)
-			s++;
-		if (*s)
+		if (*s != c)
 		{
-			word_start = (char *)s;
-			while (*s != c && *s)
-				s++;
-			word_len = s - word_start;
-			split_arr[i] = malloc((word_len + 1) * sizeof(char));
-			if (!split_arr[i])
-				return (free_array_strings(split_arr, i));
-			ft_strlcpy(split_arr[i], word_start, word_len + 1);
+			len = word_len(s, c);
+			result[i] = ft_substr(s, 0, len);
+			if (!result[i])
+				return (free_allocated_memory(result, i));
+			s += len;
 			i++;
 		}
+		else
+			s++;
 	}
-	return (split_arr);
+	result[i] = NULL;
+	return (result);
 }
 
-static char	**free_array_strings(char **split_arr, size_t i)
-{
-	while (i--)
-		free(split_arr[i]);
-	free(split_arr);
-	return (NULL);
-}
+/* 
+* count_words - Counts the number of words in a string.
+* 
+* Parameters:
+* 		s - The string to count the words of.
+* 		c - The character delimiting the words.
+* Returns:
+* 		The number of words in the string.
+*/
 
-static	size_t	get_word_count(char const *s, char c)
+static int	count_words(const char *s, char c)
 {
-	size_t	word_count;
+	int	count;
+	int	in_word;
 
-	word_count = 0;
+	in_word = 0;
+	count = 0;
 	while (*s)
 	{
-		while (*s == c)
-			s++;
-		if (*s)
+		if (*s != c && in_word == 0)
 		{
-			word_count++;
-			while (*s != c && *s)
-				s++;
+			in_word = 1;
+			count++;
 		}
+		else if (*s == c)
+			in_word = 0;
+		s++;
 	}
-	return (word_count);
+	return (count);
+}
+
+/*
+* word_len - Counts the length of a word.
+* The length of a word is defined as the number of characters
+* until the next occurence of the delimiter character or the
+* end of the string.
+*
+* Parameters:
+* 		s - The string to count the length of.
+* 		c - The character delimiting the words.
+* Returns:
+* 		The length of the word.
+*/
+
+static int	word_len(const char *s, char c)
+{
+	int	len;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
+}
+
+/*
+* free_allocated_memory - Frees the allocated memory.
+* Frees the allocated memory for a split array of strings and strings
+* in case of an error.
+* Returns char **NULL to comply with the return type of ft_split.
+*
+* Parameters:
+* 		result - The result of the split.
+* 		i - The index of the result.
+* Returns:
+* 		NULL.
+*/
+
+char	**free_allocated_memory(char **result, int i)
+{
+	while (i > 0)
+	{
+		i--;
+		free(result[i]);
+	}
+	free(result);
+	return (NULL);
 }

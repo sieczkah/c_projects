@@ -12,24 +12,46 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+/*
+ * The strnstr() function locates the first occurrence of 
+ * the null-terminated string s2 in the string s1, 
+ * where not more than n characters are searched.
+ * Characters that appear after a `\0' character are not searched.
+ * 
+ * Undefined behavior occurs when searching for a string longer than s1.
+ * or when searching for a NULL pointer, or when n is greater than the length
+ * of the string s1.
+ * 
+ * Parameters:
+ * 		s1 - The string to be searched.
+ * 		s2 - The substring to be searched for.
+ * 		n - The maximum number of characters to be searched.
+ * Return Value:
+ * 		If s2 is an empty string, s1 is returned; if s2 occurs nowhere in s1,
+ *  		NULL is returned; 
+ * 		otherwise a pointer to the first character of the 
+ * 			first occurrence of s2 is returned.
+ */
+
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t	needle_len;
+	size_t	s2_len;
+	size_t	i;
 
-	needle_len = ft_strlen(needle);
-	if (!needle_len)
-		return ((char *)haystack);
-	while (len >= needle_len)
+	s2_len = ft_strlen(s2);
+	if (*s2 == '\0')
+		return ((char *)s1);
+	i = 0;
+	while (s1[i] && i < n)
 	{
-		if (*haystack == *needle)
+		if (i + s2_len <= n)
 		{
-			if (ft_strncmp(haystack, needle, needle_len) == 0)
-				return ((char *)haystack);
+			if (ft_strncmp(&s1[i], s2, s2_len) == 0)
+				return ((char *)&s1[i]);
 		}
-		haystack++;
-		len--;
+		i++;
 	}
 	return (NULL);
 }

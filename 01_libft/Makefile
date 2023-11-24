@@ -31,7 +31,10 @@ bonus: $(BONUS_OBJS)
 	ar rcs $(NAME) $(BONUS_OBJS)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) 
+
+bclean:
+	$(RM) $(BONUS_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -39,4 +42,4 @@ fclean: clean
 re:
 	fclean $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all clean bclean fclean re

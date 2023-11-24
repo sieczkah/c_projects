@@ -14,6 +14,21 @@
 
 char	*ft_strdup(const char *str);
 
+/*
+ * ft_strdup - Returns a pointer to a new string which is a duplicate of the
+ * string str. Memory for the new string is obtained with malloc(3), and can be
+ * freed with free(3).
+ * If insufficient memory is available, NULL is returned. 
+ * If str is NULL, NULL is returned.
+ *
+ * Parameters:
+ * 		str - The string to duplicate.
+ *
+ * Return Value:
+ * 		Returns a pointer to the duplicated string. NULL if insufficient memory
+ * 		was available.
+ */
+
 char	*ft_strdup(const char *str)
 {
 	char	*s_dup;

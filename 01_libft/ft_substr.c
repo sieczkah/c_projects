@@ -14,6 +14,27 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
+/*
+* ft_substr:
+* Takes as input a string 's', an unsigned integer 'start', and a size 'len'.
+* Returns a new string that is a substring of 's'. The substring begins at
+* index 'start' and is of maximum size 'len'. 
+* If 'start' is greater than the length of 's', or if 'len' is 0,
+* the function returns an empty string. 
+* If 'len' is greater than the length of 's' starting from 'start',
+* the substring extends to the end of 's'.
+* The returned string is allocated with malloc and should be freed with free when
+* no longer needed.
+*
+* Parameters:
+* - s: The source string from which to create the substring
+* - start: The index in 's' where the substring should start
+* - len: The maximum length of the substring
+*
+* Return value:
+* - The newly created substring, or NULL if the allocation fails
+*/
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	src_len;

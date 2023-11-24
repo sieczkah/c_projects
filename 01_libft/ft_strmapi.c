@@ -14,6 +14,23 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
+/*
+* ft_strmapi - Applies a function to each character of a string.
+* Applies the function 'f' to each character of the string 's' to create 
+* a new string.
+* This new string is created in the heap, and it's the responsibility 
+* of the caller to free it when it's no longer needed.
+* The function 'f' takes as parameters the index of the character 
+* in the string and the character itself.
+*
+* Parameters:
+* 		s - The string to iterate over.
+* 		f - The function to apply to each character of 's'.
+* Returns:
+* 		The string created from the successive applications of 'f',
+* 		or NULL if the allocation fails.
+*/
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*new_str;

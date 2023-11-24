@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c);
+char	*ft_strrchr(const char *s, int c);
 
 /*
  * The strrchr() function locates the last occurrence of c (converted to a char)
@@ -26,18 +26,18 @@ char	*ft_strrchr(const char *str, int c);
  * the character does not appear in the string.
  */
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*last_ocur;
 
 	last_ocur = NULL;
-	while (*str)
+	while (*s)
 	{
-		if (*str == (char)c)
-			last_ocur = (char *)str;
-		str++;
+		if (*s == (char)c)
+			last_ocur = (char *)s;
+		s++;
 	}
 	if ((char)c == '\0')
-		return ((char *)str);
+		return ((char *)s);
 	return (last_ocur);
 }

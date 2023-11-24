@@ -14,6 +14,16 @@
 
 int	ft_lstsize(t_list *lst);
 
+/*
+* ft_lstsize - Counts the number of elements in a list.
+* Iterates over the list 'lst' and increments a counter for each element.
+*
+* Parameters:
+* 		lst - The start of the list.
+* Returns:
+* 		The total number of elements in the list.
+*/
+
 int	ft_lstsize(t_list *lst)
 {
 	int	count;

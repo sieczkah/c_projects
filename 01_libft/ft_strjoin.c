@@ -14,6 +14,19 @@
 
 char	*ft_strjoin(char const *s1, char const *s2);
 
+/*
+ * ft_strjoin() allocates (with malloc(3)) and returns a new string, 
+ * which is the result of the concatenation of ’s1’ and ’s2’. 
+ * Each string is interpreted as const char.
+ * Passing a NULL pointer will result in an undefined behavior.
+ * 
+ * Parameters:
+ * 		s1 - The prefix string.
+ * 		s2 - The suffix string.
+ * 
+ * Return Value:
+ * 		The new string. NULL if the allocation fails.
+ */
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str_join;
