@@ -23,7 +23,6 @@ void	ft_putnbr_fd(int n, int fd);
 * 		n - The integer to output.
 * 		fd - The file descriptor on which to write.
 */
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	abs_num;

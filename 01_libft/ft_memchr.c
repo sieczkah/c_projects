@@ -31,7 +31,6 @@ void	*ft_memchr(const void *s, int c, size_t n);
  * 		Returns a pointer to the matching byte or NULL if the character does not
  * 		occur in the given memory area.
  */
-
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*ptr;

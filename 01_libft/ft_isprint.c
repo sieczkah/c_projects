@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c);
+#include "libft.h"
 
 /*
  * ft_isprint - Checks if a character is printable.
@@ -21,7 +21,6 @@ int	ft_isprint(int c);
  * Return Value:
  *		Returns 1 if 'c' is printable, 0 otherwise.
 */
-
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)

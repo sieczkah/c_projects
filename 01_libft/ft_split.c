@@ -34,9 +34,10 @@ char			**free_allocated_memory(char **result, int i);
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	int		len;
 	char	**result;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	result = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!result)
@@ -45,11 +46,10 @@ char	**ft_split(char const *s, char c)
 	{
 		if (*s != c)
 		{
-			len = word_len(s, c);
-			result[i] = ft_substr(s, 0, len);
+			result[i] = ft_substr(s, 0, word_len(s, c));
 			if (!result[i])
 				return (free_allocated_memory(result, i));
-			s += len;
+			s += word_len(s, c);
 			i++;
 		}
 		else

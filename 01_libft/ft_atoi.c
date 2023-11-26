@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_atoi(const char *str);
 
 /*
@@ -27,7 +29,6 @@ int	ft_atoi(const char *str);
  * 		The converted value.
  * 		If no valid conversion could be performed, it returns zero.
  */
-
 int	ft_atoi(const char *str)
 {
 	int	result;

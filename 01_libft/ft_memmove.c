@@ -12,47 +12,37 @@
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
 
 /*
- * ft_memmove - Copies n bytes from memory area src to memory area dest.
+ * ft_memmove - Copies len bytes from memory area src to memory area dst.
  * The memory areas may overlap.
- * Passing a NULL pointer to dest or src will result in undefined behavior.
+ * Passing a NULL pointer to dst or src will result in undefined behavior.
  *
- * If dest and src overlap in memory, memmove() ensures that the original
+ * If dst and src overlap in memory, memmove() ensures that the original
  * source bytes in the overlapping region are copied before being overwritten.
  * 
  * Parameters:
- *		dest - A pointer to the destination memory area.
+ *		dst - A pointer to the destination memory area.
  *		src - A pointer to the source memory area.
- *		n - The number of bytes to be copied.
+ *		len - The number of bytes to be copied.
  *
  * Return Value:
- *		Returns a pointer to dest.
+ *		Returns a pointer to dst.
  */
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
 
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	if (n == 0)
-		return (dest);
-	if (d < s || d >= (s + n))
+	d = dst;
+	s = src;
+	if (d > s)
 	{
-		while (n--)
-			*d++ = *s++;
+		while (len--)
+			d[len] = s[len];
 	}
-	else
-	{
-		d += n;
-		s += n;
-		while (n--)
-		{
-			*(--d) = *(--s);
-		}
-	}
-	return (dest);
+	else if (d < s)
+		ft_memcpy(dst, src, len);
+	return (dst);
 }

@@ -12,31 +12,30 @@
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n);
+void	*ft_memset(void *b, int c, size_t len);
 
 /*
  * ft_memset - Fills a block of memory with a specified value.
- * Passing a NULL pointer to s will result in undefined behavior.
+ * Passing a NULL pointer to b will result in undefined behavior.
  * 
  * Parameters:
- *		s - A pointer to the block of memory to fill.
+ *		b - A pointer to the block of memory to fill.
  *		c - The value to be set.
- *		n - The number of bytes to be set to the value.
+ *		len - The number of bytes to be set to the value.
  *
  * Return Value:
  *		Returns a pointer to the memory block.
  */
-
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*ptr;
 
-	ptr = (unsigned char *)s;
-	while (n > 0)
+	ptr = (unsigned char *)b;
+	while (len > 0)
 	{
 		*ptr = (unsigned char)c;
 		ptr++;
-		n--;
+		len--;
 	}
-	return (s);
+	return (b);
 }

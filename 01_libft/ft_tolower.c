@@ -10,8 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_tolower(int c);
 
+/* 
+ * The ft_tolower() function converts a upper-case letter to the corresponding
+ * lower-case letter.
+ * 
+ * Params:
+ * 	c - character to convert
+ *
+ * RETURN VALUES
+ * If the argument is a upper-case letter, the ft_tolower() function returns the
+ * corresponding lower-case letter if there is one; otherwise, the argument is
+ * returned unchanged.
+ */
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')

@@ -26,12 +26,13 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 * 		s - The string to iterate over.
 * 		f - The function to apply to each character of 's'.
 */
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
+	if (!s || !f)
+		return ;
 	while (s[i])
 	{
 		f(i, &s[i]);

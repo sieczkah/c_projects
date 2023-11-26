@@ -28,7 +28,6 @@ void	*ft_calloc(size_t count, size_t size);
  * 		If count or size is 0, then calloc() returns either NULL, or a unique
  * 		pointer value that can later be successfully passed to free().
  */
-
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;

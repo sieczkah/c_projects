@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c);
+#include "libft.h"
 
 /*
  * ft_isascii - Checks if a character is an ASCII character.
@@ -22,7 +22,6 @@ int	ft_isascii(int c);
  * Return Value:
  *		Returns 1 if 'c' is an ASCII character, 0 otherwise.
 */
-
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c);
+#include "libft.h"
 
 /*
  * ft_isalpha - Checks if a character is an alphabetic (a-z, A-Z) letter.

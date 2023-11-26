@@ -34,12 +34,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 * Return value:
 * - The newly created substring, or NULL if the allocation fails
 */
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	src_len;
 	char	*substr;
 
+	if (!s)
+		return (NULL);
 	src_len = ft_strlen(s);
 	if ((start >= ft_strlen(s)) || len == 0)
 		return (ft_strdup(""));

@@ -25,7 +25,6 @@ char	*ft_strchr(const char *s, int c);
  * The functions strchr() return a pointer to the located character, or NULL if
  * the character does not appear in the string.
  */
-
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)

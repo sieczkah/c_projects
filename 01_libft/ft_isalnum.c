@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c);
+#include "libft.h"
 
 /* ft_isalnum - Checks if a character is alphanumeric (a-z, A-Z, 0-9).
  * Parameters:

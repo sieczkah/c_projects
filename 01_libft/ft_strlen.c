@@ -24,7 +24,6 @@ size_t	ft_strlen(const char *s);
  * Return Value:
  *		Returns the length of the string.
 */
-
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

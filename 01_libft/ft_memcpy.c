@@ -9,6 +9,7 @@
 /*   Updated: 2023/10/08 18:06:30 by hsieczka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -26,20 +27,17 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
  * Return Value:
  *		Returns a pointer to dst.
  */
-
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	size_t	i;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (n > 0)
+	if (dst == src || n == 0)
+		return (dst);
+	i = 0;
+	while (i < n)
 	{
-		while (n--)
-		{
-			*d++ = *s++;
-		}
+		((unsigned char *)dst)[i] = ((const char *)src)[i];
+		i++;
 	}
 	return (dst);
 }

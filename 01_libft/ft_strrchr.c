@@ -25,7 +25,6 @@ char	*ft_strrchr(const char *s, int c);
  * The functions strrchr() return a pointer to the located character, or NULL if
  * the character does not appear in the string.
  */
-
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*last_ocur;

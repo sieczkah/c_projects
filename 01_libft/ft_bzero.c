@@ -25,16 +25,7 @@ void	ft_bzero(void *s, size_t n);
  * Return Value:
  *		No return value (void).
  */
-
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n > 0)
-	{
-		*ptr = (unsigned char)('\0');
-		ptr++;
-		n--;
-	}
+	ft_memset(s, 0, n);
 }

@@ -24,7 +24,6 @@ void	ft_putendl_fd(char *s, int fd);
 * 		s - The string to output.
 * 		fd - The file descriptor on which to write.
 */
-
 void	ft_putendl_fd(char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));

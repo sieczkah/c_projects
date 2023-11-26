@@ -12,44 +12,43 @@
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 /*
  * The strnstr() function locates the first occurrence of 
- * the null-terminated string s2 in the string s1, 
- * where not more than n characters are searched.
+ * the null-terminated string needle in the string haystack, 
+ * where not more than len characters are searched.
  * Characters that appear after a `\0' character are not searched.
  * 
- * Undefined behavior occurs when searching for a string longer than s1.
- * or when searching for a NULL pointer, or when n is greater than the length
- * of the string s1.
+ * Undefined behavior occurs when searching for a string longer than haystack.
+ * or when searching for a NULL pointer, or when len is greater than the length
+ * of the string haystack.
  * 
  * Parameters:
- * 		s1 - The string to be searched.
- * 		s2 - The substring to be searched for.
- * 		n - The maximum number of characters to be searched.
+ * 		haystack - The string to be searched.
+ * 		needle - The substring to be searched for.
+ * 		len - The maximum number of characters to be searched.
  * Return Value:
- * 		If s2 is an empty string, s1 is returned; if s2 occurs nowhere in s1,
- *  		NULL is returned; 
+ * 		If needle is an empty string, haystack is returned; if needle occurs 
+ * 		nowhere in haystack, NULL is returned; 
  * 		otherwise a pointer to the first character of the 
- * 			first occurrence of s2 is returned.
+ * 			first occurrence of needle is returned.
  */
-
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	s2_len;
 	size_t	i;
 
-	s2_len = ft_strlen(s2);
-	if (*s2 == '\0')
-		return ((char *)s1);
+	s2_len = ft_strlen(needle);
+	if (*needle == '\0')
+		return ((char *)haystack);
 	i = 0;
-	while (s1[i] && i < n)
+	while (haystack[i] && i < len)
 	{
-		if (i + s2_len <= n)
+		if (i + s2_len <= len)
 		{
-			if (ft_strncmp(&s1[i], s2, s2_len) == 0)
-				return ((char *)&s1[i]);
+			if (ft_strncmp(&haystack[i], needle, s2_len) == 0)
+				return ((char *)&haystack[i]);
 		}
 		i++;
 	}

@@ -31,7 +31,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n);
  * 		< 0 - if the first differing byte in s1 is less than that in s2.
  * 	If n is zero, the return value is zero.
  */
-
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	if (n > 0)

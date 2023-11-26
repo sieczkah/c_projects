@@ -30,12 +30,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 * 		The string created from the successive applications of 'f',
 * 		or NULL if the allocation fails.
 */
-
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*new_str;
 	unsigned int	i;
 
+	if (!s)
+		return (NULL);
 	new_str = ft_strdup(s);
 	if (new_str == NULL)
 		return (NULL);
