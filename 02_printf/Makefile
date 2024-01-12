@@ -17,19 +17,17 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFTDIR = ./libft
 
-SRCS = ft_printf.c
+SRCS = ft_printf.c utils/ft_hex_utils.c utils/ft_str_utils.c utils/ft_int_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-makelibft:
+$(NAME): $(OBJS)
 	@make -C $(LIBFTDIR)
 	@cp $(LIBFTDIR)/$(LIBFTNAME) .
 	@mv $(LIBFTNAME) $(NAME)
-
-$(NAME): makelibft $(OBJS)
-	@ar $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 clean:
 	@rm -f $(OBJS)

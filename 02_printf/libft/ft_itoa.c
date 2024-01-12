@@ -13,7 +13,7 @@
 #include "libft.h"
 
 char			*ft_itoa(int n);
-static int		get_num_size(int n);
+static int		get_num_size(long long n);
 
 /*
 * ft_itoa - Converts an integer to a string.
@@ -53,7 +53,26 @@ char	*ft_itoa(int n)
 	return (str_num);
 }
 
-static int	get_num_size(int n)
+char	*ft_uitoa(unsigned int n)
+{
+	int		len;
+	char	*str_num;
+
+	len = get_num_size(n);
+	str_num = malloc(len + 1);
+	if (!str_num)
+		return (NULL);
+	str_num[len] = '\0';
+	while (len -- > 0)
+	{
+		str_num[len] = (n % 10) + '0';
+		n /= 10;
+	}
+	return (str_num);
+}
+
+
+static int	get_num_size(long long n)
 {
 	int	len;
 
