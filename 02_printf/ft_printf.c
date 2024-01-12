@@ -28,7 +28,7 @@ int	ft_printf(const char *input, ...)
 			input++;
 			if (ft_strchr("cspdiuxX", *input))
 				print_len += print_type(input, args_list);
-			else if (*input == '%') 
+			else if (*input == '%')
 				print_len += ft_print_char(*input);
 		}
 		else

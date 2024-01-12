@@ -71,7 +71,6 @@ char	*ft_uitoa(unsigned int n)
 	return (str_num);
 }
 
-
 static int	get_num_size(long long n)
 {
 	int	len;

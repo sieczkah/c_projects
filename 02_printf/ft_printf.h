@@ -27,5 +27,4 @@ int		ft_print_hex(unsigned int num, int upper);
 int		ft_print_address(unsigned long long ptr);
 int		ft_print_hex_address(unsigned long long num);
 
-
 #endif

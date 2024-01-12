@@ -11,18 +11,16 @@
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
 int	ft_print_address(unsigned long long ptr);
 int	ft_print_hex_address(unsigned long long num);
 int	ft_get_hex_size(unsigned long long num);
 int	ft_print_hex(unsigned int num, int upper);
 
-
 int	ft_print_address(unsigned long long ptr)
 {
 	int	size;
 
-	if (!ptr)
-		return (ft_print_str("(nil)"));
 	size = 0;
 	size += ft_print_str("0x");
 	size += ft_print_hex_address(ptr);
@@ -71,6 +69,7 @@ int	ft_print_hex(unsigned int num, int upper)
 	free(hex_str);
 	return (i);
 }
+
 int	ft_print_hex_address(unsigned long long num)
 {
 	int		size;
