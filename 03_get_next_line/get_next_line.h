@@ -10,4 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
+# include <stdarg.h>
+# include "get_next_line.h"
+
+
+#endif
