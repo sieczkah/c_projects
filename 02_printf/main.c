@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
+// int main(void)
+// {
+//     int i;
+
+//     i = 0;
+//     i = ft_printf("\001\002\007\v\010\f\r\n");
+//     printf("%d", i);
+// }
 
 int	main(void)
 {
