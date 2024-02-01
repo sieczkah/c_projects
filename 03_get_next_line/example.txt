@@ -1,4 +1,6 @@
-This is the first line
-1
+Welcome to the file!
+This is the first line.
+This is the second line.
 
-Its fourth but should be third or not?
+
+This is the sixth line.
