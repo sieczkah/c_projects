@@ -24,12 +24,15 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*read_from_file(char *lake_buffer, int fd);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*read_from_file(int fd, char *storage);
+char	*get_remain(char *storage);
+char	*extract_line(char *storage);
+
+
+size_t	ft_strlen(const char *s)
+char	*ft_strjoin(char *storage, char *buff);
+char	*ft_strchr(char *s, int c);
+
 
 
 #endif
