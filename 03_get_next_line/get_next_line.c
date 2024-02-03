@@ -12,6 +12,56 @@
 
 #include "get_next_line.h"
 
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*storage;
+
+	if (fd < 0 || read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)
+	{
+		free(storage);
+		storage = NULL;
+		return (NULL);
+	}
+	if (!storage)
+	{
+		storage = malloc(sizeof(char));
+		if (!storage)
+			return (NULL);
+		storage[0] = '\0';
+	}
+	storage = read_from_file(fd, storage);
+	if (!storage)
+		return (free(storage), NULL);
+	line = extract_line(storage);
+	storage = get_remain(storage);
+	return (line);
+}
+
+char	*read_from_file(int fd, char *storage)
+{
+	char	*str_bucket;
+	char	*tmp;
+	int		bytes_read;
+
+	str_bucket = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!str_bucket)
+		return (NULL);
+	bytes_read = 1;
+	while (!ft_strchr(storage, '\n') && bytes_read != 0)
+	{
+		bytes_read = read(fd, str_bucket, BUFFER_SIZE);
+		if (bytes_read < 0)
+			return (free(str_bucket), NULL);
+		str_bucket[bytes_read] = '\0';
+		tmp = ft_strjoin(storage, str_bucket);
+		free(storage);
+		storage = tmp;
+	}
+	free (str_bucket);
+	return (storage);
+}
+
 char	*extract_line(char *storage)
 {
 	int		i;
@@ -67,53 +117,5 @@ char	*get_remain(char *storage)
 	return (new_storage);
 }
 
-char	*read_from_file(int fd, char *storage)
-{
-	char	*temp_storage;
-	int		bytes_read;
 
-	temp_storage = NULL;
-	temp_storage = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!temp_storage)
-		return (NULL);
-	bytes_read = 1;
-	while (!ft_strchr(storage, '\n') && bytes_read != 0)
-	{
-		bytes_read = read(fd, temp_storage, BUFFER_SIZE);
-		if (bytes_read < 0)
-			return (free(temp_storage), free(storage), NULL);
-		temp_storage[bytes_read] = '\0';
-		storage = ft_strjoin(storage, temp_storage);
-	}
-	free (temp_storage);
-	return (storage);
-}
 
-char	*get_next_line(int fd)
-{
-	char		*line;
-	static char	*storage;
-
-	if (fd < 0 || read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)
-	{
-		if (storage)
-		{
-			free(storage);
-			storage = NULL;
-		}
-		return (NULL);
-	}
-	if (!storage)
-	{
-		storage = malloc(sizeof(char));
-		if (!storage)
-			return (NULL);
-		storage[0] = '\0';
-	}
-	storage = read_from_file(fd, storage);
-	if (storage == NULL)
-		return (NULL);
-	line = extract_line(storage);
-	storage = get_remain(storage);
-	return (line);
-}
