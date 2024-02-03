@@ -21,7 +21,7 @@ int main(void)
 		line_read = get_next_line(fd);
 		if (line_read == NULL)
 			break;
-		printf("[%d]:%s\n", count++, line_read);
+		printf("[%d]:%s", count++, line_read);
 		free(line_read);
 		line_read = NULL;
 	}

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsieczka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,26 +15,26 @@
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*storage;
+	static char	*storage[OPEN_MAX];
 
 	if (fd < 0 || read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)
 	{
-		free(storage);
-		storage = NULL;
+		free(storage[fd]);
+		storage[fd] = NULL;
 		return (NULL);
 	}
-	if (!storage)
+	if (!storage[fd])
 	{
-		storage = malloc(sizeof(char));
-		if (!storage)
+		storage[fd] = malloc(sizeof(char));
+		if (!storage[fd])
 			return (NULL);
-		storage[0] = '\0';
+		storage[fd][0] = '\0';
 	}
-	storage = read_from_file(fd, storage);
-	if (!storage)
-		return (free(storage), NULL);
-	line = extract_line(storage);
-	storage = get_remain(storage);
+	storage[fd] = read_from_file(fd, storage[fd]);
+	if (!storage[fd])
+		return (free(storage[fd]), NULL);
+	line = extract_line(storage[fd]);
+	storage = get_remain(storage[fd]);
 	return (line);
 }
 
