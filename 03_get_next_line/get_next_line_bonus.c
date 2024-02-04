@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hsieczka <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 17:12:23 by hsieczka          #+#    #+#             */
-/*   Updated: 2024/01/12 17:12:24 by hsieczka         ###   ########.fr       */
+/*   Created: 2024/02/04 11:20:13 by hsieczka          #+#    #+#             */
+/*   Updated: 2024/02/04 11:20:14 by hsieczka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
@@ -34,7 +34,7 @@ char	*get_next_line(int fd)
 	if (!storage[fd])
 		return (free(storage[fd]), NULL);
 	line = extract_line(storage[fd]);
-	storage = get_remain(storage[fd]);
+	storage[fd] = get_remain(storage[fd]);
 	return (line);
 }
 
