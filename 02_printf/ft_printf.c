@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	print_type(const char *input, va_list args);
+int	print_type(const char *input, va_list *args);
 
 int	ft_printf(const char *input, ...)
 {
@@ -27,7 +27,7 @@ int	ft_printf(const char *input, ...)
 		{
 			input++;
 			if (ft_strchr("cspdiuxX", *input))
-				print_len += print_type(input, args_list);
+				print_len += print_type(input, &args_list);
 			else if (*input == '%')
 				print_len += ft_print_char(*input);
 		}
@@ -39,22 +39,22 @@ int	ft_printf(const char *input, ...)
 	return (print_len);
 }
 
-int	print_type(const char *format, va_list arg)
+int	print_type(const char *format, va_list *arg)
 {
 	int	print_len;
 
 	print_len = 0;
 	if (*format == 'c')
-		print_len += ft_print_char(va_arg(arg, int));
+		print_len += ft_print_char(va_arg(*arg, int));
 	else if (*format == 's')
-		print_len += ft_print_str(va_arg(arg, char *));
+		print_len += ft_print_str(va_arg(*arg, char *));
 	else if (*format == 'p')
-		print_len += ft_print_address(va_arg(arg, unsigned long long));
+		print_len += ft_print_address(va_arg(*arg, unsigned long long));
 	else if (*format == 'd' || *format == 'i')
-		print_len += ft_print_int(va_arg(arg, int));
+		print_len += ft_print_int(va_arg(*arg, int));
 	else if (*format == 'u')
-		print_len += ft_print_uint(va_arg(arg, unsigned int));
+		print_len += ft_print_uint(va_arg(*arg, unsigned int));
 	else if (*format == 'x' || *format == 'X')
-		print_len += ft_print_hex(va_arg(arg, unsigned int), *format);
+		print_len += ft_print_hex(va_arg(*arg, unsigned int), *format);
 	return (print_len);
 }
